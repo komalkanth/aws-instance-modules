@@ -10,8 +10,10 @@ resource "aws_instance" "ec2-with-internet" {
   associate_public_ip_address = true
   vpc_security_group_ids      = var.public_security_group_ids
 
-  tags = {
-    Name = "jenkins_master_tf"
-  }
+  tags = merge(
+    var.default_tags, {
+      Name = "${var.environment}-${var.region_to_name_map[var.region]}"
+    }
+  )
 
 }

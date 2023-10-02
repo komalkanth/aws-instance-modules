@@ -17,3 +17,22 @@ variable "public_security_group_ids" {
 variable "deploy_instances" {
   type = bool
 }
+
+variable "environment" {}
+
+variable "region" {}
+
+variable "organization" {}
+
+variable "region_to_name_map" {
+  type = map(any)
+  default = {
+    us-east-1      = "usea1"
+    us-east-2      = "usea2"
+    us-west-2      = "uswe2"
+    ap-south-1     = "apso1"
+    ap-southeast-1 = "apse1"
+  }
+}
+
+variable "default_tags" {}
